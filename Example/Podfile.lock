@@ -1,0 +1,14 @@
+PODS:
+  - DSRadialMenu (0.1.0)
+
+DEPENDENCIES:
+  - DSRadialMenu (from `../`)
+
+EXTERNAL SOURCES:
+  DSRadialMenu:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DSRadialMenu: b8747174274c586450618dd064d979e457e96f35
+
+COCOAPODS: 0.37.2

@@ -10,19 +10,15 @@
 Pod::Spec.new do |s|
   s.name             = "DSRadialMenu"
   s.version          = "0.1.0"
-  s.summary          = "A short description of DSRadialMenu."
+  s.summary          = "DSRadialMenu allows you to provide menu options that appear from a button in the center. Menu items can be shown by specifying a position that relates to the hours on a clock face."
   s.description      = <<-DESC
-                       An optional longer description of DSRadialMenu
 
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
                        DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/DSRadialMenu"
+  s.homepage         = "https://github.com/DanSessions/DSRadialMenu"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "Daniel Sessions" => "daniel.sessions@webresint.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/DSRadialMenu.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { "Dan Sessions" => "dansessions@gmail.com" }
+  s.source           = { :git => "https://github.com/DanSessions/DSRadialMenu.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
@@ -32,7 +28,4 @@ Pod::Spec.new do |s|
     'DSRadialMenu' => ['Pod/Assets/*.png']
   }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

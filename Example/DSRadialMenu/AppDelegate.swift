@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  DSRadialMenu
 //
-//  Created by Daniel Sessions on 06/22/2015.
-//  Copyright (c) 06/22/2015 Daniel Sessions. All rights reserved.
+//  Created by Dan Sessions on 03/06/2015.
+//  Copyright (c) 2015 Daniel Sessions. All rights reserved.
 //
 
 import UIKit
