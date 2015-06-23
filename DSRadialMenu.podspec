@@ -10,12 +10,11 @@
 Pod::Spec.new do |s|
   s.name             = "DSRadialMenu"
   s.version          = "0.1.0"
-  s.summary          = "DSRadialMenu allows you to provide menu options that appear from a button in the center. Menu items can be shown by specifying a position that relates to the hours on a clock face."
+  s.summary          = "DSRadialMenu is a menu with a radial layout. It allows you to provide menu options that appear from a button in the center."
   s.description      = <<-DESC
-
+                        DSRadialMenu allows you to provide menu options that appear from a button in the center. Menu items can be shown by specifying a position that relates to the hours on a clock face.
                        DESC
   s.homepage         = "https://github.com/DanSessions/DSRadialMenu"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Dan Sessions" => "dansessions@gmail.com" }
   s.source           = { :git => "https://github.com/DanSessions/DSRadialMenu.git", :tag => s.version.to_s }

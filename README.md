@@ -10,8 +10,6 @@ DSRadialMenu allows you to provide menu options that appear from a button in the
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
-
 ## Installation
 
 DSRadialMenu is available through [CocoaPods](http://cocoapods.org). To install
@@ -23,7 +21,7 @@ pod "DSRadialMenu"
 
 ## Author
 
-Daniel Sessions, daniel.sessions@webresint.com
+Dan Sessions, dansessions+github@gmail.com
 
 ## License
 
