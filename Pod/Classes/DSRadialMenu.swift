@@ -70,6 +70,9 @@ public class DSRadialMenu: UIView {
         addButtonConstraints(button, size: size)
         let menuItem = MenuItem(button, position)
         menuItems.append(menuItem)
+        if state == .Open {
+            animateMenuItemOut(menuItem)
+        }
         return menuItem.button as! T
     }
 
@@ -81,32 +84,40 @@ public class DSRadialMenu: UIView {
     
     public func open() {
         for menuItem in menuItems {
-            let point = calculateMenuItemPoint(menuItem.positon)
-            UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: .CurveEaseInOut, animations: { () -> Void in
-                menuItem.button.transform = CGAffineTransformMakeTranslation(point.x, point.y)
-                }, completion: nil)
+            animateMenuItemOut(menuItem)
         }
         state = .Open
     }
     
     public func close() {
         for menuItem in menuItems {
-            UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.4, options: .CurveEaseInOut, animations: { () -> Void in
-                menuItem.button.transform = CGAffineTransformIdentity
-                }, completion: nil)            
+            animateMenuItemIn(menuItem)
         }
         state = .Closed
     }
     
+    func animateMenuItemOut(menuItem: MenuItem) {
+        let point = calculateMenuItemPoint(menuItem.positon)
+        UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: .CurveEaseInOut, animations: { () -> Void in
+            menuItem.button.transform = CGAffineTransformMakeTranslation(point.x, point.y)
+            }, completion: nil)
+    }
+    
+    func animateMenuItemIn(menuItem: MenuItem) {
+        UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.4, options: .CurveEaseInOut, animations: { () -> Void in
+            menuItem.button.transform = CGAffineTransformIdentity
+            }, completion: nil)
+    }
+    
     public func nextMenuItemPosition() -> MenuItemPositon? {
-        if let lastPosition = menuItems.last?.positon.rawValue, let nextPosition = MenuItemPositon(rawValue: lastPosition + 1) {
-            if let index = find(menuItems.map( { $0.positon } ), nextPosition) {
-                println("Taken")
-            }
-            
-            return nextPosition
+        let takenPositions = menuItems.map( { $0.positon.rawValue } )
+        let freePositions = [Int](MenuItemPositon.TwelveOClock.rawValue...MenuItemPositon.ElevenOClock.rawValue).filter() {
+            return find(takenPositions, $0) == nil
+        }
+        if freePositions.isEmpty {
+            return nil
         } else {
-            return .TwelveOClock
+            return MenuItemPositon(rawValue: freePositions.first!)
         }
     }
     
