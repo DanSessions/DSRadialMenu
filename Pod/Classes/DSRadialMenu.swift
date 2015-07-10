@@ -12,13 +12,16 @@ import UIKit
 public class DSRadialMenu: UIView {
     
     typealias MenuItem = (button: UIButton, positon: MenuItemPositon)
+
+    @IBInspectable public var menuItemSize: CGSize = CGSizeZero
+    @IBInspectable var distanceFromCenter: Double = 100
     
     var distanceBetweenMenuItems: Double = 30
-    public var distanceFromCenter: Double = 100
+
     private(set) public var state: MenuState = .Closed
     private(set) var menuItems = [MenuItem]()
     
-    public var tappedMenuItem: ((MenuItemPositon) -> Void)?
+    public var tappedMenuItem: ((String, MenuItemPositon) -> Void)?
     
     public enum MenuState {
         case Open
@@ -58,6 +61,10 @@ public class DSRadialMenu: UIView {
         addConstraint(NSLayoutConstraint(item: button, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 1))
         addConstraint(NSLayoutConstraint(item: button, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1, constant: 1))
     }
+
+    public func addMenuItem<T: UIButton>(title: String, position: MenuItemPositon) -> T {
+        return addMenuItem(title, position: position, size: menuItemSize)        
+    }
     
     public func addMenuItem<T: UIButton>(title: String, position: MenuItemPositon, size: CGSize) -> T {
         let button = T()
@@ -76,9 +83,20 @@ public class DSRadialMenu: UIView {
         return menuItem.button as! T
     }
 
+    public func removeMenuItem(position: MenuItemPositon) {
+        let index = menuItems.indexOf { (element) in
+            return element.positon == position
+        }
+        if let index = index {
+            let menuItem = menuItems[index]
+            animateMenuItemIn(menuItem)
+            menuItems.removeAtIndex(index)
+        }
+    }
+    
     func tappedMenuItem(menuItem: UIButton) {
         if let position = MenuItemPositon(rawValue: menuItem.tag) {
-            tappedMenuItem?(position)
+            tappedMenuItem?(menuItem.titleForState(.Normal)!, position)
         }
     }
     
