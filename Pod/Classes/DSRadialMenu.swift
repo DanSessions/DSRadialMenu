@@ -9,23 +9,30 @@
 import Darwin
 import UIKit
 
+public protocol DSRadialMenuDelegate: class {
+    func menuItemTapped(menuItem: DSRadialMenu.MenuItem)
+}
+
 public class DSRadialMenu: UIView {
     
-    typealias MenuItem = (button: UIButton, positon: MenuItemPositon)
+    public typealias MenuItem = (button: UIButton, position: MenuItemPosition)
+
+    @IBOutlet public weak var centerButton: UIButton!
+    
+    @IBInspectable public var menuItemSize = CGSize(width: 50, height: 50)
+    @IBInspectable public var distanceFromCenter: Double = 100
     
     var distanceBetweenMenuItems: Double = 30
-    public var distanceFromCenter: Double = 100
+    private(set) public var menuItems = [MenuItem]()
     private(set) public var state: MenuState = .Closed
-    private(set) var menuItems = [MenuItem]()
-    
-    public var tappedMenuItem: ((MenuItemPositon) -> Void)?
+    public weak var delegate: DSRadialMenuDelegate?
     
     public enum MenuState {
         case Open
         case Closed
     }
     
-    public enum MenuItemPositon: Int {
+    public enum MenuItemPosition: Int {
         case Center = -1
         case TwelveOClock = 0
         case OneOClock = 1
@@ -41,30 +48,18 @@ public class DSRadialMenu: UIView {
         case ElevenOClock = 11
     }
     
-    func calculateMenuItemPoint(position: MenuItemPositon) -> CGPoint {
-        let π = M_PI
-        let angle: Double = (distanceBetweenMenuItems * Double(position.rawValue))
-        let cosine = cos(angle / Double(180.0) * π)
-        let sine = sin(angle / Double(180.0) * π)
-        let deltaY: Double = -distanceFromCenter * cosine
-        let deltaX: Double = distanceFromCenter * sine
-        let point = CGPoint(x: deltaX, y: deltaY)
-        return point
+    // MARK: Public
+    
+    public func addMenuItem<T: UIButton>(title: String, position: MenuItemPosition) -> T {
+        return addMenuItem(title, position: position, size: menuItemSize)        
     }
     
-    func addButtonConstraints(button: UIButton, size: CGSize) {
-        addConstraint(NSLayoutConstraint(item: button, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: size.width))
-        addConstraint(NSLayoutConstraint(item: button, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: size.height))
-        addConstraint(NSLayoutConstraint(item: button, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 1))
-        addConstraint(NSLayoutConstraint(item: button, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1, constant: 1))
-    }
-    
-    public func addMenuItem<T: UIButton>(title: String, position: MenuItemPositon, size: CGSize) -> T {
+    public func addMenuItem<T: UIButton>(title: String, position: MenuItemPosition, size: CGSize) -> T {
         let button = T()
-        button.setTranslatesAutoresizingMaskIntoConstraints(false)
         button.setTitle(title, forState: .Normal)
-        button.tag = position.rawValue
-        button.addTarget(self, action: "tappedMenuItem:", forControlEvents: .TouchUpInside)
+        button.setTranslatesAutoresizingMaskIntoConstraints(false)
+        button.hidden = true
+        button.addTarget(self, action: "menuItemButtonTapped:", forControlEvents: .TouchUpInside)
         addSubview(button)
         sendSubviewToBack(button)
         addButtonConstraints(button, size: size)
@@ -76,9 +71,11 @@ public class DSRadialMenu: UIView {
         return menuItem.button as! T
     }
 
-    func tappedMenuItem(menuItem: UIButton) {
-        if let position = MenuItemPositon(rawValue: menuItem.tag) {
-            tappedMenuItem?(position)
+    public func removeMenuItem(position: MenuItemPosition) {
+        if let index = indexOfMenuItemAtPosition(position) {
+            let menuItem = menuItems[index]
+            animateMenuItemIn(menuItem)
+            menuItems.removeAtIndex(index)
         }
     }
     
@@ -96,8 +93,23 @@ public class DSRadialMenu: UIView {
         state = .Closed
     }
     
+    public func nextMenuItemPosition() -> MenuItemPosition? {
+        let takenPositions = menuItems.map( { $0.position.rawValue } )
+        let freePositions = [Int](MenuItemPosition.TwelveOClock.rawValue...MenuItemPosition.ElevenOClock.rawValue).filter() {
+            return find(takenPositions, $0) == nil
+        }
+        if freePositions.isEmpty {
+            return nil
+        } else {
+            return MenuItemPosition(rawValue: freePositions.first!)
+        }
+    }
+    
+    // MARK: Internal
+    
     func animateMenuItemOut(menuItem: MenuItem) {
-        let point = calculateMenuItemPoint(menuItem.positon)
+        menuItem.button.hidden = false
+        let point = calculateMenuItemPoint(menuItem.position)
         UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: .CurveEaseInOut, animations: { () -> Void in
             menuItem.button.transform = CGAffineTransformMakeTranslation(point.x, point.y)
             }, completion: nil)
@@ -106,18 +118,48 @@ public class DSRadialMenu: UIView {
     func animateMenuItemIn(menuItem: MenuItem) {
         UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.4, options: .CurveEaseInOut, animations: { () -> Void in
             menuItem.button.transform = CGAffineTransformIdentity
-            }, completion: nil)
+            }, completion: { (finished) -> Void in
+                menuItem.button.hidden = true
+        })
     }
     
-    public func nextMenuItemPosition() -> MenuItemPositon? {
-        let takenPositions = menuItems.map( { $0.positon.rawValue } )
-        let freePositions = [Int](MenuItemPositon.TwelveOClock.rawValue...MenuItemPositon.ElevenOClock.rawValue).filter() {
-            return find(takenPositions, $0) == nil
+    func calculateMenuItemPoint(position: MenuItemPosition) -> CGPoint {
+        let π = M_PI
+        let angle: Double = (distanceBetweenMenuItems * Double(position.rawValue))
+        let cosine = cos(angle / Double(180.0) * π)
+        let sine = sin(angle / Double(180.0) * π)
+        let deltaY: Double = -distanceFromCenter * cosine
+        let deltaX: Double = distanceFromCenter * sine
+        let point = CGPoint(x: deltaX, y: deltaY)
+        return point
+    }
+    
+    func addButtonConstraints(button: UIButton, size: CGSize) {
+        NSLayoutConstraint.activateConstraints([
+            NSLayoutConstraint(item: button, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: size.width),
+            NSLayoutConstraint(item: button, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: size.height),
+            NSLayoutConstraint(item: button, attribute: .CenterX, relatedBy: .Equal, toItem: centerButton, attribute: .CenterX, multiplier: 1, constant: 1),
+            NSLayoutConstraint(item: button, attribute: .CenterY, relatedBy: .Equal, toItem: centerButton, attribute: .CenterY, multiplier: 1, constant: 1)
+            ])
+    }
+    
+    func indexOfMenuItemAtPosition(position: MenuItemPosition) -> Int? {
+        var indexOfMenuItem: Int?
+        for (index, menuItem) in enumerate(menuItems) {
+            if menuItem.position == position {
+                indexOfMenuItem = index
+                break
+            }
         }
-        if freePositions.isEmpty {
-            return nil
-        } else {
-            return MenuItemPositon(rawValue: freePositions.first!)
+        return indexOfMenuItem
+    }
+    
+    func menuItemButtonTapped(button: UIButton) {
+        let menuItem = menuItems.filter {
+            $0.button == button
+            }.first
+        if let menuItem = menuItem {
+            delegate?.menuItemTapped(menuItem)
         }
     }
     
