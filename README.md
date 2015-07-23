@@ -6,6 +6,8 @@
 
 DSRadialMenu allows you to provide menu options that appear from a button in the center. Menu items can be shown by specifying a position that relates to the hours on a clock face.
 
+![Example](http://zippy.gfycat.com/PerfumedSelfassuredAstrangiacoral.gif)
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
