@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/cocoapods/l/DSRadialMenu.svg?style=flat)](http://cocoapods.org/pods/DSRadialMenu)
 [![Platform](https://img.shields.io/cocoapods/p/DSRadialMenu.svg?style=flat)](http://cocoapods.org/pods/DSRadialMenu)
 
-DSRadialMenu allows you to provide menu options that appear from a button in the center. Menu items can be shown by specifying a position that relates to the hours on a clock face.
+DSRadialMenu provides a way to display menu items that appear from behind and are positioned around a given location. Positions are defined as the hours on a clock face. Menu items can be added or removed and respond to interaction.
 
 ![Example](http://zippy.gfycat.com/PerfumedSelfassuredAstrangiacoral.gif)
 
