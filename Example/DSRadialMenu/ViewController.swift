@@ -9,19 +9,16 @@
 import UIKit
 import DSRadialMenu
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, DSRadialMenuDelegate {
 
     @IBOutlet weak var radialMenu: DSRadialMenu!
     @IBOutlet weak var centerButton: UIButton!
     @IBOutlet weak var actionLabel: UILabel!
     
-    typealias MenuItem = (title: String, position: DSRadialMenu.MenuItemPositon)
+    typealias MenuItem = (title: String, position: DSRadialMenu.MenuItemPosition)
     
     let menuItemSize = CGSize(width: 65, height: 65)
-    var menuItems: [MenuItem] {
-        return [MenuItem("2", .TwoOClock), MenuItem("4", .FourOClock), MenuItem("5", .FiveOClock), MenuItem("10", .TenOClock)]
-    }
-    
+
     @IBAction func tappedOpenOrClose(sender: UIButton) {
         switch radialMenu.state {
         case .Closed:
@@ -35,36 +32,65 @@ class ViewController: UIViewController {
     
     @IBAction func tappedAddMenuItem(sender: UIButton) {
         if let nextPostion = radialMenu.nextMenuItemPosition() {
-            let button = radialMenu.addMenuItem(String(nextPostion.rawValue), position: nextPostion, size: menuItemSize) as RoundButton
-            configureButton(button)
+            let title = String(nextPostion.rawValue)
+            addMenuItem(MenuItem(title, nextPostion))
+        } else {
+            actionLabel.text = "No more room!"
         }
     }
     
-    func tappedMenuItem(position: DSRadialMenu.MenuItemPositon) {
-        actionLabel.text = "Tapped menu item at position \(position.rawValue)"
+    @IBAction func tappedRemoveMenuItem(sender: UIButton) {
+        if let lastPosition = radialMenu.menuItems.last?.position {
+            radialMenu.removeMenuItem(lastPosition)
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupMenu()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        radialMenu.distanceFromCenter = 150
-        radialMenu.tappedMenuItem = tappedMenuItem
         addMenuItems()
     }
 
     func addMenuItems() {
+        let menuItems = [
+            MenuItem("2", .TwoOClock),
+            MenuItem("4", .FourOClock),
+            MenuItem("5", .FiveOClock),
+            MenuItem("10", .TenOClock)
+        ]
         for menuItem in menuItems {
-            let button = radialMenu.addMenuItem(menuItem.title, position: menuItem.position, size: menuItemSize) as RoundButton
-            configureButton(button)
+            addMenuItem(menuItem)
         }
     }
 
-    func configureButton(button: RoundButton) {
+    func addMenuItem(menuItem: MenuItem) {
+        let button: RoundButton = radialMenu.addMenuItem(menuItem.title, position: menuItem.position, size: menuItemSize)
+        setupButton(button)
+    }
+
+    func setupButton(button: RoundButton) {
         button.cornerRadius = menuItemSize.width / 2
         button.titleLabel?.font = centerButton.titleLabel!.font.fontWithSize(15)
         button.backgroundColor = UIColor.redColor()
         button.titleLabel?.lineBreakMode = .ByWordWrapping
         button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
     }
+ 
+    func setupMenu() {
+        radialMenu.delegate = self
+        radialMenu.distanceFromCenter = 150
+    }
     
 }
 
+extension ViewController: DSRadialMenuDelegate {
+
+    func menuItemTapped(menuItem: DSRadialMenu.MenuItem) {
+        actionLabel.text = "Tapped menu item at position \(menuItem.position.rawValue)"
+    }
+    
+}
