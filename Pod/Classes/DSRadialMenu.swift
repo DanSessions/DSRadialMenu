@@ -57,7 +57,7 @@ public class DSRadialMenu: UIView {
     public func addMenuItem<T: UIButton>(title: String, position: MenuItemPosition, size: CGSize) -> T {
         let button = T()
         button.setTitle(title, forState: .Normal)
-        button.setTranslatesAutoresizingMaskIntoConstraints(false)
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.hidden = true
         button.addTarget(self, action: "menuItemButtonTapped:", forControlEvents: .TouchUpInside)
         addSubview(button)
@@ -96,7 +96,7 @@ public class DSRadialMenu: UIView {
     public func nextMenuItemPosition() -> MenuItemPosition? {
         let takenPositions = menuItems.map( { $0.position.rawValue } )
         let freePositions = [Int](MenuItemPosition.TwelveOClock.rawValue...MenuItemPosition.ElevenOClock.rawValue).filter() {
-            return find(takenPositions, $0) == nil
+            return takenPositions.indexOf($0) == nil
         }
         if freePositions.isEmpty {
             return nil
@@ -145,7 +145,7 @@ public class DSRadialMenu: UIView {
     
     func indexOfMenuItemAtPosition(position: MenuItemPosition) -> Int? {
         var indexOfMenuItem: Int?
-        for (index, menuItem) in enumerate(menuItems) {
+        for (index, menuItem) in menuItems.enumerate() {
             if menuItem.position == position {
                 indexOfMenuItem = index
                 break

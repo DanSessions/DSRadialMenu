@@ -9,7 +9,7 @@
 import UIKit
 import DSRadialMenu
 
-class ViewController: UIViewController, DSRadialMenuDelegate {
+class ViewController: UIViewController {
 
     @IBOutlet weak var radialMenu: DSRadialMenu!
     @IBOutlet weak var centerButton: UIButton!
