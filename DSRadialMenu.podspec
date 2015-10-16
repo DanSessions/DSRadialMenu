@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "DSRadialMenu"
-  s.version          = "0.2.0"
+  s.version          = "0.3.0"
   s.summary          = "DSRadialMenu is a menu with a radial layout. It allows you to provide menu options that appear from a button."
   s.description      = <<-DESC
                         DSRadialMenu allows you to provide menu options that appear from a button. Menu items can be shown by specifying a position that relates to the hours on a clock face.
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.author           = { "Dan Sessions" => "dansessions@gmail.com" }
   s.source           = { :git => "https://github.com/DanSessions/DSRadialMenu.git", :tag => s.version.to_s }
 
-  s.platform     = :ios, '8.0'
+  s.platform     = :ios, '9.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
