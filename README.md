@@ -6,7 +6,7 @@
 
 DSRadialMenu provides a way to display menu items that appear from behind and are positioned around a given location. Positions are defined as the hours on a clock face. Menu items can be added or removed and respond to interaction.
 
-![Example](http://gph.is/1QPgQKI)
+<iframe src="http://gfycat.com/ifr/GlamorousColorfulIndianglassfish" frameborder="0" scrolling="no" width="278" height="470" style="-webkit-backface-visibility: hidden;-webkit-transform: scale(1);" ></iframe>
 
 ## Usage
 
