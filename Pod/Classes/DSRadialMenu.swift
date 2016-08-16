@@ -16,15 +16,16 @@ public protocol DSRadialMenuDelegate: class {
 public class DSRadialMenu: UIView {
     
     public typealias MenuItem = (button: UIButton, position: MenuItemPosition)
-
+    
     @IBOutlet public weak var centerButton: UIButton!
     
     @IBInspectable public var menuItemSize = CGSize(width: 50, height: 50)
     @IBInspectable public var distanceFromCenter: Double = 100
     
     var distanceBetweenMenuItems: Double = 30
-    private(set) public var menuItems = [MenuItem]()
-    private(set) public var state: MenuState = .Closed
+    
+    public private(set) var menuItems = [MenuItem]()
+    public private(set) var state: MenuState = .Closed
     public weak var delegate: DSRadialMenuDelegate?
     
     public enum MenuState {
@@ -51,7 +52,7 @@ public class DSRadialMenu: UIView {
     // MARK: Public
     
     public func addMenuItem<T: UIButton>(title: String, position: MenuItemPosition) -> T {
-        return addMenuItem(title, position: position, size: menuItemSize)        
+        return addMenuItem(title, position: position, size: menuItemSize)
     }
     
     public func addMenuItem<T: UIButton>(title: String, position: MenuItemPosition, size: CGSize) -> T {
@@ -59,7 +60,7 @@ public class DSRadialMenu: UIView {
         button.setTitle(title, forState: .Normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.hidden = true
-        button.addTarget(self, action: "menuItemButtonTapped:", forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: #selector(DSRadialMenu.menuItemButtonTapped(_:)), forControlEvents: .TouchUpInside)
         addSubview(button)
         sendSubviewToBack(button)
         addButtonConstraints(button, size: size)
@@ -70,7 +71,7 @@ public class DSRadialMenu: UIView {
         }
         return menuItem.button as! T
     }
-
+    
     public func removeMenuItem(position: MenuItemPosition) {
         if let index = indexOfMenuItemAtPosition(position) {
             let menuItem = menuItems[index]
@@ -94,14 +95,13 @@ public class DSRadialMenu: UIView {
     }
     
     public func nextMenuItemPosition() -> MenuItemPosition? {
-        let takenPositions = menuItems.map( { $0.position.rawValue } )
-        let freePositions = [Int](MenuItemPosition.TwelveOClock.rawValue...MenuItemPosition.ElevenOClock.rawValue).filter() {
-            return takenPositions.indexOf($0) == nil
-        }
-        if freePositions.isEmpty {
-            return nil
+        let takenPositions = menuItems.map { $0.position.rawValue }
+        let range = (MenuItemPosition.TwelveOClock.rawValue...MenuItemPosition.ElevenOClock.rawValue)
+        let freePositions = range.filter() { return takenPositions.indexOf($0) == nil }
+        if let freePosition = freePositions.first {
+            return MenuItemPosition(rawValue: freePosition)
         } else {
-            return MenuItemPosition(rawValue: freePositions.first!)
+            return nil
         }
     }
     
@@ -110,16 +110,27 @@ public class DSRadialMenu: UIView {
     func animateMenuItemOut(menuItem: MenuItem) {
         menuItem.button.hidden = false
         let point = calculateMenuItemPoint(menuItem.position)
-        UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: .CurveEaseInOut, animations: { () -> Void in
-            menuItem.button.transform = CGAffineTransformMakeTranslation(point.x, point.y)
-            }, completion: nil)
+        animateMenuItem(menuItem,
+                        direction: .Out,
+                        animations: { menuItem.button.transform = CGAffineTransformMakeTranslation(point.x, point.y) },
+                        completion: nil)
     }
     
     func animateMenuItemIn(menuItem: MenuItem) {
-        UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.4, options: .CurveEaseInOut, animations: { () -> Void in
-            menuItem.button.transform = CGAffineTransformIdentity
-            }, completion: { (finished) -> Void in
-                menuItem.button.hidden = true
+        animateMenuItem(menuItem,
+                        direction: .In,
+                        animations: { menuItem.button.transform = CGAffineTransformIdentity },
+                        completion: { finished in menuItem.button.hidden = true })
+    }
+    
+    func animateMenuItem(menuItem: MenuItem, direction: MenuItemAnimationDirection, animations: (() -> Void), completion: ((Bool) -> Void)?) {
+        UIView.animateWithDuration(0.4,
+                                   delay: 0,
+                                   usingSpringWithDamping: direction.damping,
+                                   initialSpringVelocity: direction.velocity,
+                                   options: .CurveEaseInOut,
+                                   animations: { animations() },
+                                   completion: { finished in completion?(finished)
         })
     }
     
@@ -155,12 +166,35 @@ public class DSRadialMenu: UIView {
     }
     
     func menuItemButtonTapped(button: UIButton) {
-        let menuItem = menuItems.filter {
-            $0.button == button
-            }.first
+        let menuItem = menuItems.filter { $0.button == button }.first
         if let menuItem = menuItem {
             delegate?.menuItemTapped(menuItem)
         }
     }
     
 }
+
+enum MenuItemAnimationDirection {
+    case In
+    case Out
+    
+    var damping: CGFloat {
+        switch self {
+        case .In:
+            return 1
+        case .Out:
+            return 0.8
+        }
+    }
+    
+    var velocity: CGFloat {
+        switch self {
+        case .In:
+            return 0.4
+        case .Out:
+            return 0.6
+        }
+    }
+    
+}
+
