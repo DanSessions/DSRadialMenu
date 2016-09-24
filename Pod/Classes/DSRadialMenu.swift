@@ -76,6 +76,7 @@ public class DSRadialMenu: UIView {
         if let index = indexOfMenuItemAtPosition(position) {
             let menuItem = menuItems[index]
             animateMenuItemIn(menuItem)
+            menuItem.button.removeFromSuperview()
             menuItems.removeAtIndex(index)
         }
     }
