@@ -13,7 +13,6 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var radialMenu: DSRadialMenu!
     @IBOutlet weak var centerButton: UIButton!
-    @IBOutlet weak var actionLabel: UILabel!
     
     typealias MenuItem = (title: String, position: DSRadialMenu.MenuItemPosition)
     
@@ -35,7 +34,7 @@ class ViewController: UIViewController {
             let title = String(nextPostion.rawValue)
             addMenuItem(MenuItem(title, nextPostion))
         } else {
-            actionLabel.text = "No more room!"
+            print("No more room!")
         }
     }
     
@@ -90,7 +89,7 @@ class ViewController: UIViewController {
 extension ViewController: DSRadialMenuDelegate {
 
     func menuItemTapped(menuItem: DSRadialMenu.MenuItem) {
-        actionLabel.text = "Tapped menu item at position \(menuItem.position.rawValue)"
+        print("Tapped menu item at position \(menuItem.position.rawValue)")
     }
     
 }

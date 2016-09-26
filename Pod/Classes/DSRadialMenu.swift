@@ -75,9 +75,10 @@ public class DSRadialMenu: UIView {
     public func removeMenuItem(position: MenuItemPosition) {
         if let index = indexOfMenuItemAtPosition(position) {
             let menuItem = menuItems[index]
-            animateMenuItemIn(menuItem)
-            menuItem.button.removeFromSuperview()
-            menuItems.removeAtIndex(index)
+            animateMenuItemIn(menuItem, completion: {
+                menuItem.button.removeFromSuperview()
+            })
+            self.menuItems.removeAtIndex(index)
         }
     }
     
@@ -114,14 +115,18 @@ public class DSRadialMenu: UIView {
         animateMenuItem(menuItem,
                         direction: .Out,
                         animations: { menuItem.button.transform = CGAffineTransformMakeTranslation(point.x, point.y) },
-                        completion: nil)
+                        completion: nil
+        )
     }
     
-    func animateMenuItemIn(menuItem: MenuItem) {
+    func animateMenuItemIn(menuItem: MenuItem, completion: (() -> Void)? = nil) {
         animateMenuItem(menuItem,
                         direction: .In,
                         animations: { menuItem.button.transform = CGAffineTransformIdentity },
-                        completion: { finished in menuItem.button.hidden = true })
+                        completion: { finished in
+                            menuItem.button.hidden = true
+                            completion?()
+        })
     }
     
     func animateMenuItem(menuItem: MenuItem, direction: MenuItemAnimationDirection, animations: (() -> Void), completion: ((Bool) -> Void)?) {
