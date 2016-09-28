@@ -48,7 +48,7 @@ class RoundButton: UIButton {
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = cornerRadius > 0
         layer.borderWidth = borderWidth
-        layer.borderColor = borderColor?.CGColor
+        layer.borderColor = borderColor?.cgColor
     }
     
     override func prepareForInterfaceBuilder() {

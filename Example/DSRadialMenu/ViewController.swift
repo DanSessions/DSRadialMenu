@@ -18,18 +18,18 @@ class ViewController: UIViewController {
     
     let menuItemSize = CGSize(width: 65, height: 65)
 
-    @IBAction func tappedOpenOrClose(sender: UIButton) {
+    @IBAction func tappedOpenOrClose(_ sender: UIButton) {
         switch radialMenu.state {
-        case .Closed:
+        case .closed:
             radialMenu.open()
-            centerButton.setTitle("Close", forState: .Normal)
-        case .Open:
+            centerButton.setTitle("Close", for: UIControlState())
+        case .open:
             radialMenu.close()
-            centerButton.setTitle("Open", forState: .Normal)
+            centerButton.setTitle("Open", for: UIControlState())
         }
     }
     
-    @IBAction func tappedAddMenuItem(sender: UIButton) {
+    @IBAction func tappedAddMenuItem(_ sender: UIButton) {
         if let nextPostion = radialMenu.nextMenuItemPosition() {
             let title = String(nextPostion.rawValue)
             addMenuItem(MenuItem(title, nextPostion))
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func tappedRemoveMenuItem(sender: UIButton) {
+    @IBAction func tappedRemoveMenuItem(_ sender: UIButton) {
         if let lastPosition = radialMenu.menuItems.last?.position {
             radialMenu.removeMenuItem(lastPosition)
         }
@@ -49,34 +49,34 @@ class ViewController: UIViewController {
         setupMenu()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         addMenuItems()
     }
 
     func addMenuItems() {
         let menuItems = [
-            MenuItem("2", .TwoOClock),
-            MenuItem("4", .FourOClock),
-            MenuItem("5", .FiveOClock),
-            MenuItem("10", .TenOClock)
+            MenuItem("2", .twoOClock),
+            MenuItem("4", .fourOClock),
+            MenuItem("5", .fiveOClock),
+            MenuItem("10", .tenOClock)
         ]
         for menuItem in menuItems {
             addMenuItem(menuItem)
         }
     }
 
-    func addMenuItem(menuItem: MenuItem) {
+    func addMenuItem(_ menuItem: MenuItem) {
         let button: RoundButton = radialMenu.addMenuItem(menuItem.title, position: menuItem.position, size: menuItemSize)
         setupButton(button)
     }
 
-    func setupButton(button: RoundButton) {
+    func setupButton(_ button: RoundButton) {
         button.cornerRadius = menuItemSize.width / 2
-        button.titleLabel?.font = centerButton.titleLabel!.font.fontWithSize(15)
-        button.backgroundColor = UIColor.redColor()
-        button.titleLabel?.lineBreakMode = .ByWordWrapping
-        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        button.titleLabel?.font = centerButton.titleLabel!.font.withSize(15)
+        button.backgroundColor = UIColor.red
+        button.titleLabel?.lineBreakMode = .byWordWrapping
+        button.setTitleColor(UIColor.white, for: UIControlState())
     }
  
     func setupMenu() {
@@ -88,7 +88,7 @@ class ViewController: UIViewController {
 
 extension ViewController: DSRadialMenuDelegate {
 
-    func menuItemTapped(menuItem: DSRadialMenu.MenuItem) {
+    func menuItemTapped(_ menuItem: DSRadialMenu.MenuItem) {
         print("Tapped menu item at position \(menuItem.position.rawValue)")
     }
     
