@@ -1,12 +1,10 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'DSRadialMenu_Example', :exclusive => true do
+target 'DSRadialMenu_Example' do
   pod "DSRadialMenu", :path => "../"
 end
 
-target 'DSRadialMenu_Tests', :exclusive => true do
+target 'DSRadialMenu_Tests' do
   pod "DSRadialMenu", :path => "../"
-
-  
 end
