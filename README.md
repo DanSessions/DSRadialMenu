@@ -25,6 +25,7 @@ DSRadialMenu provides a way to display menu items that appear from behind and ar
       radialMenu.close()
    }
    ```
+   
 5. Add your menu items and configure the buttons if necessary.
    ```swift
    typealias MenuItem = (title: String, position: DSRadialMenu.MenuItemPosition)
