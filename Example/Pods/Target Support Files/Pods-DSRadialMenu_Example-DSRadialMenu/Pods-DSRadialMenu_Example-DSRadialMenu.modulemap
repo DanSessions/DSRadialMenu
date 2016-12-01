@@ -1,6 +1,0 @@
-framework module DSRadialMenu {
-  umbrella header "Pods-DSRadialMenu_Example-DSRadialMenu-umbrella.h"
-
-  export *
-  module * { export * }
-}
