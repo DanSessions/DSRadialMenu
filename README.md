@@ -3,8 +3,11 @@
 [![Version](https://img.shields.io/cocoapods/v/DSRadialMenu.svg?style=flat)](http://cocoapods.org/pods/DSRadialMenu)
 [![License](https://img.shields.io/cocoapods/l/DSRadialMenu.svg?style=flat)](http://cocoapods.org/pods/DSRadialMenu)
 [![Platform](https://img.shields.io/cocoapods/p/DSRadialMenu.svg?style=flat)](http://cocoapods.org/pods/DSRadialMenu)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-DSRadialMenu provides a way to display menu items that appear from behind and are positioned around a given location. Menu item positions are defined as the hours on a clock face. Menu items can be added or removed and respond to interaction.
+DSRadialMenu provides a way to display menu items that appear from behind and are positioned around a given center button. Menu item positions are defined as the hours on a clock face. Menu items can be added or removed and respond to interaction.
+
+<b>Updated for Swift 3.</b>
 
 ![Example](http://i.imgur.com/nRxR3h3.gif)
 
@@ -14,33 +17,29 @@ DSRadialMenu provides a way to display menu items that appear from behind and ar
 2. Add a button that will act as the center of the menu and will perform the open and close action. This button will need constraints that define its size and position.
 3. Connect this button's outlet to the centerButton property of the DSRadialMenu.
 4. Add code to open or close the menu when the button is tapped.
-
-    ```
-    switch radialMenu.state {
-    case .Closed:
-        radialMenu.open()
-    case .Open:
-        radialMenu.close()
-    }
-    ```
-    
+```swift
+switch radialMenu.state {
+case .Closed:
+radialMenu.open()
+case .Open:
+radialMenu.close()
+}
+```
 5. Add your menu items and configure the buttons if necessary.
+```swift
+typealias MenuItem = (title: String, position: DSRadialMenu.MenuItemPosition)
+let menuItems = [
+MenuItem("Account", .ThreeOClock),
+MenuItem("Share", .FourOClock),
+MenuItem("Start", .FiveOClock),
+MenuItem("Sign Out", .SixOClock)
+]
 
-    ```
-    typealias MenuItem = (title: String, position: DSRadialMenu.MenuItemPosition)
-    let menuItems = [
-        MenuItem("Account", .ThreeOClock),
-        MenuItem("Share", .FourOClock),
-        MenuItem("Start", .FiveOClock),
-        MenuItem("Sign Out", .SixOClock)
-    ]
-        
-    for menuItem in menuItems {
-        let button = radialMenu.addMenuItem(menuItem.title, position: menuItem.position)
-        button.setTitleColor(UIColor.blackColor(), forState: .Normal)
-    }
-    ```
-
+for menuItem in menuItems {
+let button = radialMenu.addMenuItem(menuItem.title, position: menuItem.position)
+button.setTitleColor(UIColor.blackColor(), forState: .Normal)
+}
+```
 
 ## Installation
 
