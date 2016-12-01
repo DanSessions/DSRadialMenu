@@ -1,25 +1,22 @@
 {
   "name": "DSRadialMenu",
   "version": "0.1.0",
-  "summary": "DSRadialMenu allows you to provide menu options that appear from a button in the center. Menu items can be shown by specifying a position that relates to the hours on a clock face.",
-  "description": "\n",
-  "homepage": "https://github.com/DanSessions/DSRadialMenu",
-  "license": "MIT",
+  "summary": "A short description of DSRadialMenu.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/DSRadialMenu",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
   "authors": {
     "Dan Sessions": "dansessions@gmail.com"
   },
   "source": {
-    "git": "https://github.com/DanSessions/DSRadialMenu.git",
+    "git": "https://github.com/<GITHUB_USERNAME>/DSRadialMenu.git",
     "tag": "0.1.0"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "requires_arc": true,
-  "source_files": "Pod/Classes/**/*",
-  "resource_bundles": {
-    "DSRadialMenu": [
-      "Pod/Assets/*.png"
-    ]
-  }
+  "source_files": "DSRadialMenu/Classes/**/*"
 }

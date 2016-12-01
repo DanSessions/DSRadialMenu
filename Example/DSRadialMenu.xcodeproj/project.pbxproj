@@ -7,34 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		37E2DBCD1B385B860079FEC0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E2DBCC1B385B860079FEC0 /* RoundButton.swift */; };
+		37744B381DCBA69B00442DA9 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37744B371DCBA69B00442DA9 /* RoundButton.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		62F8C7056A429C53F5D18E04 /* Pods_DSRadialMenu_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B151E6691E4178A9B1A6F9 /* Pods_DSRadialMenu_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		B3B608C9963F668E3ADFA0DC /* Pods_DSRadialMenu_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14BA3576FB614AFCCCB46CE6 /* Pods_DSRadialMenu_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		BAC159EAE9E4E1155ECB4D8D /* Pods_DSRadialMenu_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7F67CBBAE85D51C50305BD7 /* Pods_DSRadialMenu_Example.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		607FACE61AFB9204008FA782 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
-			remoteInfo = DSRadialMenu;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		088F513789D882A6E2C5EABF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		14BA3576FB614AFCCCB46CE6 /* Pods_DSRadialMenu_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSRadialMenu_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		19B151E6691E4178A9B1A6F9 /* Pods_DSRadialMenu_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSRadialMenu_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		37E2DBCC1B385B860079FEC0 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		4659714A4A93BF845107E239 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		4A1416A78BB19EFE1FD864FA /* Pods-DSRadialMenu_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSRadialMenu_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-DSRadialMenu_Example/Pods-DSRadialMenu_Example.release.xcconfig"; sourceTree = "<group>"; };
+		00D6848AF45E4263C8835BB1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		09D92A2FDF0BABE249D891BA /* Pods-DSRadialMenu_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSRadialMenu_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-DSRadialMenu_Example/Pods-DSRadialMenu_Example.release.xcconfig"; sourceTree = "<group>"; };
+		0FEAED62DE8B8C547F7E52BE /* DSRadialMenu.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DSRadialMenu.podspec; path = ../DSRadialMenu.podspec; sourceTree = "<group>"; };
+		37744B371DCBA69B00442DA9 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		5353CF99DEB271D99B97DD24 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* DSRadialMenu_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSRadialMenu_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,13 +29,8 @@
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		607FACE51AFB9204008FA782 /* DSRadialMenu_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSRadialMenu_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		6FD7EFE850402204BD18C6D2 /* Pods-DSRadialMenu_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSRadialMenu_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DSRadialMenu_Example/Pods-DSRadialMenu_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		92F9AC930F29FD39857ED301 /* Pods-DSRadialMenu_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSRadialMenu_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DSRadialMenu_Tests/Pods-DSRadialMenu_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		DCBE119755EEBA47D455A387 /* Pods-DSRadialMenu_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSRadialMenu_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DSRadialMenu_Tests/Pods-DSRadialMenu_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		ED412B8D4CAF9545652FF3DE /* DSRadialMenu.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DSRadialMenu.podspec; path = ../DSRadialMenu.podspec; sourceTree = "<group>"; };
+		AB840181D1D143740E556281 /* Pods-DSRadialMenu_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSRadialMenu_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DSRadialMenu_Example/Pods-DSRadialMenu_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		B7F67CBBAE85D51C50305BD7 /* Pods_DSRadialMenu_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSRadialMenu_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,39 +38,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3B608C9963F668E3ADFA0DC /* Pods_DSRadialMenu_Example.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		607FACE21AFB9204008FA782 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				62F8C7056A429C53F5D18E04 /* Pods_DSRadialMenu_Tests.framework in Frameworks */,
+				BAC159EAE9E4E1155ECB4D8D /* Pods_DSRadialMenu_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4E027D7EF18527BA6DA8CFBD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				14BA3576FB614AFCCCB46CE6 /* Pods_DSRadialMenu_Example.framework */,
-				19B151E6691E4178A9B1A6F9 /* Pods_DSRadialMenu_Tests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for DSRadialMenu */,
-				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				D65940B38E09A1C6A2292B8F /* Pods */,
-				4E027D7EF18527BA6DA8CFBD /* Frameworks */,
+				DAC4BC172BA4625BD27525CF /* Pods */,
+				9084F4AE9C7CF62B58145F02 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,7 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* DSRadialMenu_Example.app */,
-				607FACE51AFB9204008FA782 /* DSRadialMenu_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,8 +68,8 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				37744B371DCBA69B00442DA9 /* RoundButton.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				37E2DBCC1B385B860079FEC0 /* RoundButton.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -124,40 +87,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		607FACE81AFB9204008FA782 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
-				607FACE91AFB9204008FA782 /* Supporting Files */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		607FACE91AFB9204008FA782 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEA1AFB9204008FA782 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				ED412B8D4CAF9545652FF3DE /* DSRadialMenu.podspec */,
-				088F513789D882A6E2C5EABF /* README.md */,
-				4659714A4A93BF845107E239 /* LICENSE */,
+				0FEAED62DE8B8C547F7E52BE /* DSRadialMenu.podspec */,
+				00D6848AF45E4263C8835BB1 /* README.md */,
+				5353CF99DEB271D99B97DD24 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		D65940B38E09A1C6A2292B8F /* Pods */ = {
+		9084F4AE9C7CF62B58145F02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6FD7EFE850402204BD18C6D2 /* Pods-DSRadialMenu_Example.debug.xcconfig */,
-				4A1416A78BB19EFE1FD864FA /* Pods-DSRadialMenu_Example.release.xcconfig */,
-				DCBE119755EEBA47D455A387 /* Pods-DSRadialMenu_Tests.debug.xcconfig */,
-				92F9AC930F29FD39857ED301 /* Pods-DSRadialMenu_Tests.release.xcconfig */,
+				B7F67CBBAE85D51C50305BD7 /* Pods_DSRadialMenu_Example.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DAC4BC172BA4625BD27525CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB840181D1D143740E556281 /* Pods-DSRadialMenu_Example.debug.xcconfig */,
+				09D92A2FDF0BABE249D891BA /* Pods-DSRadialMenu_Example.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -169,12 +121,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "DSRadialMenu_Example" */;
 			buildPhases = (
-				7E960520FEC2064F6CAFC71C /* Check Pods Manifest.lock */,
+				5D5B588CE4119C4674061035 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				4C9BE2107AAE750B402F6C16 /* Embed Pods Frameworks */,
-				A6F089D5CA56748FA0999568 /* Copy Pods Resources */,
+				8056A29220D17CA10E09D703 /* [CP] Embed Pods Frameworks */,
+				4C7486177D7B17C7E87C8A86 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -185,46 +137,19 @@
 			productReference = 607FACD01AFB9204008FA782 /* DSRadialMenu_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		607FACE41AFB9204008FA782 /* DSRadialMenu_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "DSRadialMenu_Tests" */;
-			buildPhases = (
-				64E2221F3243EFB23C887140 /* Check Pods Manifest.lock */,
-				607FACE11AFB9204008FA782 /* Sources */,
-				607FACE21AFB9204008FA782 /* Frameworks */,
-				607FACE31AFB9204008FA782 /* Resources */,
-				AEE465A208F6262CDD1A4727 /* Embed Pods Frameworks */,
-				71B54769FD52D41562D0510F /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				607FACE71AFB9204008FA782 /* PBXTargetDependency */,
-			);
-			name = DSRadialMenu_Tests;
-			productName = Tests;
-			productReference = 607FACE51AFB9204008FA782 /* DSRadialMenu_Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0800;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0800;
-					};
-					607FACE41AFB9204008FA782 = {
-						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0800;
-						TestTargetID = 607FACCF1AFB9204008FA782;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -242,7 +167,6 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* DSRadialMenu_Example */,
-				607FACE41AFB9204008FA782 /* DSRadialMenu_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,84 +182,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		607FACE31AFB9204008FA782 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4C9BE2107AAE750B402F6C16 /* Embed Pods Frameworks */ = {
+		4C7486177D7B17C7E87C8A86 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DSRadialMenu_Example/Pods-DSRadialMenu_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		64E2221F3243EFB23C887140 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		71B54769FD52D41562D0510F /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DSRadialMenu_Tests/Pods-DSRadialMenu_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7E960520FEC2064F6CAFC71C /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		A6F089D5CA56748FA0999568 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,19 +200,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DSRadialMenu_Example/Pods-DSRadialMenu_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AEE465A208F6262CDD1A4727 /* Embed Pods Frameworks */ = {
+		5D5B588CE4119C4674061035 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DSRadialMenu_Tests/Pods-DSRadialMenu_Tests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8056A29220D17CA10E09D703 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DSRadialMenu_Example/Pods-DSRadialMenu_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -365,29 +237,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37E2DBCD1B385B860079FEC0 /* RoundButton.swift in Sources */,
+				37744B381DCBA69B00442DA9 /* RoundButton.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		607FACE11AFB9204008FA782 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 607FACCF1AFB9204008FA782 /* DSRadialMenu_Example */;
-			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
@@ -498,8 +354,9 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6FD7EFE850402204BD18C6D2 /* Pods-DSRadialMenu_Example.debug.xcconfig */;
+			baseConfigurationReference = AB840181D1D143740E556281 /* Pods-DSRadialMenu_Example.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DSRadialMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -512,8 +369,9 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A1416A78BB19EFE1FD864FA /* Pods-DSRadialMenu_Example.release.xcconfig */;
+			baseConfigurationReference = 09D92A2FDF0BABE249D891BA /* Pods-DSRadialMenu_Example.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DSRadialMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -521,40 +379,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		607FACF31AFB9204008FA782 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DCBE119755EEBA47D455A387 /* Pods-DSRadialMenu_Tests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DSRadialMenu_Example.app/DSRadialMenu_Example";
-			};
-			name = Debug;
-		};
-		607FACF41AFB9204008FA782 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 92F9AC930F29FD39857ED301 /* Pods-DSRadialMenu_Tests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DSRadialMenu_Example.app/DSRadialMenu_Example";
 			};
 			name = Release;
 		};
@@ -575,15 +399,6 @@
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
 				607FACF11AFB9204008FA782 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "DSRadialMenu_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				607FACF31AFB9204008FA782 /* Debug */,
-				607FACF41AFB9204008FA782 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
