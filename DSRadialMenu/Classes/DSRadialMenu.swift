@@ -57,12 +57,12 @@ open class DSRadialMenu: UIView {
     
     open func addMenuItem<T: UIButton>(_ title: String, position: MenuItemPosition, size: CGSize) -> T {
         let button = T()
-        button.setTitle(title, for: UIControlState())
+        button.setTitle(title, for: UIControl.State())
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isHidden = true
         button.addTarget(self, action: #selector(DSRadialMenu.menuItemButtonTapped(_:)), for: .touchUpInside)
         addSubview(button)
-        sendSubview(toBack: button)
+        sendSubviewToBack(button)
         addButtonConstraints(button, size: size)
         let menuItem = MenuItem(button, position)
         menuItems.append(menuItem)
@@ -134,14 +134,14 @@ open class DSRadialMenu: UIView {
                                    delay: 0,
                                    usingSpringWithDamping: direction.damping,
                                    initialSpringVelocity: direction.velocity,
-                                   options: UIViewAnimationOptions(),
+                                   options: UIView.AnimationOptions(),
                                    animations: { animations() },
                                    completion: { finished in completion?(finished)
         })
     }
     
     func calculateMenuItemPoint(_ position: MenuItemPosition) -> CGPoint {
-        let π = M_PI
+        let π = Double.pi
         let angle: Double = (distanceBetweenMenuItems * Double(position.rawValue))
         let cosine = cos(angle / Double(180.0) * π)
         let sine = sin(angle / Double(180.0) * π)
@@ -171,7 +171,7 @@ open class DSRadialMenu: UIView {
         return indexOfMenuItem
     }
     
-    func menuItemButtonTapped(_ button: UIButton) {
+    @objc func menuItemButtonTapped(_ button: UIButton) {
         let menuItem = menuItems.filter { $0.button == button }.first
         if let menuItem = menuItem {
             delegate?.menuItemTapped(menuItem)
