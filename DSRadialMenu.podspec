@@ -10,7 +10,7 @@
 Pod::Spec.new do |s|
   s.name              = "DSRadialMenu"
   s.version           = "0.5.0"
-  s.summary           = "DSRadialMenu is a menu with a radial layout. It allows you to add menu items that will appear from behind a center button."
+  s.summary           = "DSRadialMenu is a menu with a radial layout. It allows you to add radial buttons that will appear from behind a center button."
   s.description       = <<-DESC
                         DSRadialMenu allows you to add buttons that appear from behind a center button in a radial pattern. Buttons can be shown by specifying a position that relates to the hours on a clock face.
                         DESC
