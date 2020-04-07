@@ -22,10 +22,10 @@ class ViewController: UIViewController {
         switch radialMenu.state {
         case .closed:
             radialMenu.open()
-            centerButton.setTitle("Close", for: UIControlState())
+            centerButton.setTitle("Close", for: UIControl.State())
         case .open:
             radialMenu.close()
-            centerButton.setTitle("Open", for: UIControlState())
+            centerButton.setTitle("Open", for: UIControl.State())
         }
     }
     
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
         button.titleLabel?.font = centerButton.titleLabel!.font.withSize(15)
         button.backgroundColor = UIColor.red
         button.titleLabel?.lineBreakMode = .byWordWrapping
-        button.setTitleColor(UIColor.white, for: UIControlState())
+        button.setTitleColor(UIColor.white, for: UIControl.State())
     }
  
     func setupMenu() {
